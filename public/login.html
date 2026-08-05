@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<!-- Sengaja tidak dikasih meta description spesifik & noindex,
+     supaya halaman ini tidak muncul juga di hasil pencarian Google -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
 
+<div class="auth-wrap">
+  <div class="auth-card">
+    <h1>Masuk</h1>
+    <p class="sub">Login khusus pemilik portofolio.</p>
+
+    <div class="form-error" id="error-box"></div>
+
+    <form id="login-form">
+      <div class="field">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" autocomplete="username" required>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" autocomplete="current-password" required>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;" id="submit-btn">
+        Masuk
+      </button>
+    </form>
+  </div>
+</div>
+
+<script src="/js/login.js"></script>
+</body>
+</html>

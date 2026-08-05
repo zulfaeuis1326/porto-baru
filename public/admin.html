@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Admin</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <div class="brand">Admin<span>.</span></div>
+    <ul class="admin-nav">
+      <li><button data-panel="panel-dashboard" class="active">Dashboard</button></li>
+      <li><button data-panel="panel-biografi">Biografi</button></li>
+      <li><button data-panel="panel-belajar">Riwayat Belajar</button></li>
+      <li><button data-panel="panel-kerja">Riwayat Kerja</button></li>
+      <li><button data-panel="panel-pencapaian">Pencapaian</button></li>
+      <li><button data-panel="panel-project">Project</button></li>
+    </ul>
+    <div style="margin-top:32px; border-top:1px solid rgba(255,255,255,0.1); padding-top:16px;">
+      <button id="btn-logout" class="btn btn-ghost" style="color:#fff; padding-left:12px;">Logout</button>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div>
+        <h2 style="margin-bottom:0;">Dashboard</h2>
+        <p style="color:var(--ink-soft); font-size:13px; margin:0;">Halo, <strong id="admin-username-label">admin</strong>. Kelola isi portofolio kamu di sini.</p>
+      </div>
+      <a href="/" target="_blank" class="btn btn-outline">Lihat Website &rarr;</a>
+    </div>
+
+    <!-- ================= DASHBOARD (ringkasan) ================= -->
+    <section id="panel-dashboard">
+      <div class="admin-panel">
+        <h2>Ringkasan Data</h2>
+        <p class="panel-desc">Jumlah data yang sedang tampil di website publik kamu saat ini.</p>
+        <div class="form-grid" id="ringkasan-grid" style="grid-template-columns: repeat(4, 1fr);"></div>
+      </div>
+    </section>
+
+    <!-- ================= BIOGRAFI ================= -->
+    <section id="panel-biografi" style="display:none;">
+      <div class="admin-panel">
+        <h2>Biografi</h2>
+        <p class="panel-desc">Data ini muncul di bagian hero/atas halaman utama.</p>
+        <div class="form-success" id="biografi-success">Biografi berhasil disimpan.</div>
+        <form id="form-biografi">
+          <div class="form-grid">
+            <div class="field"><label>Nama Lengkap</label><input name="nama" required></div>
+            <div class="field"><label>Tagline</label><input name="tagline" placeholder="cth: Mahasiswa Sistem Informasi"></div>
+            <div class="field full"><label>Deskripsi Singkat</label><textarea name="deskripsi"></textarea></div>
+            <div class="field"><label>URL Foto Profil</label><input name="foto_url" placeholder="https://..."></div>
+            <div class="field"><label>Email</label><input name="email" type="email"></div>
+            <div class="field"><label>Lokasi</label><input name="lokasi" placeholder="cth: Yogyakarta, Indonesia"></div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top:12px;">Simpan Biografi</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ================= RIWAYAT BELAJAR ================= -->
+    <section id="panel-belajar" style="display:none;">
+      <div class="admin-panel">
+        <h2>Tambah Riwayat Belajar</h2>
+        <p class="panel-desc">Contoh: nama sekolah/kampus, jurusan, tahun masuk-lulus.</p>
+        <form id="form-belajar" class="form-grid">
+          <div class="field"><label>Institusi</label><input name="institusi" required></div>
+          <div class="field"><label>Jurusan</label><input name="jurusan"></div>
+          <div class="field"><label>Tahun Mulai</label><input name="tahun_mulai" placeholder="cth: 2021"></div>
+          <div class="field"><label>Tahun Selesai</label><input name="tahun_selesai" placeholder="cth: 2025 / Sekarang"></div>
+          <div class="field full"><label>Deskripsi</label><textarea name="deskripsi"></textarea></div>
+          <div class="full"><button type="submit" class="btn btn-primary">Tambah</button></div>
+        </form>
+      </div>
+      <div class="admin-panel">
+        <h2>Daftar Riwayat Belajar</h2>
+        <div class="data-list" id="list-admin-belajar"></div>
+      </div>
+    </section>
+
+    <!-- ================= RIWAYAT KERJA ================= -->
+    <section id="panel-kerja" style="display:none;">
+      <div class="admin-panel">
+        <h2>Tambah Riwayat Kerja</h2>
+        <form id="form-kerja" class="form-grid">
+          <div class="field"><label>Perusahaan</label><input name="perusahaan" required></div>
+          <div class="field"><label>Posisi</label><input name="posisi"></div>
+          <div class="field"><label>Tahun Mulai</label><input name="tahun_mulai" placeholder="cth: 2023"></div>
+          <div class="field"><label>Tahun Selesai</label><input name="tahun_selesai" placeholder="cth: Sekarang"></div>
+          <div class="field full"><label>Deskripsi</label><textarea name="deskripsi"></textarea></div>
+          <div class="full"><button type="submit" class="btn btn-primary">Tambah</button></div>
+        </form>
+      </div>
+      <div class="admin-panel">
+        <h2>Daftar Riwayat Kerja</h2>
+        <div class="data-list" id="list-admin-kerja"></div>
+      </div>
+    </section>
+
+    <!-- ================= PENCAPAIAN ================= -->
+    <section id="panel-pencapaian" style="display:none;">
+      <div class="admin-panel">
+        <h2>Tambah Pencapaian</h2>
+        <form id="form-pencapaian" class="form-grid">
+          <div class="field"><label>Judul</label><input name="judul" required></div>
+          <div class="field"><label>Penyelenggara</label><input name="penyelenggara"></div>
+          <div class="field"><label>Tahun</label><input name="tahun" placeholder="cth: 2024"></div>
+          <div class="field"><label>URL Bukti (opsional)</label><input name="url_bukti" placeholder="https://..."></div>
+          <div class="field full"><label>Deskripsi</label><textarea name="deskripsi"></textarea></div>
+          <div class="full"><button type="submit" class="btn btn-primary">Tambah</button></div>
+        </form>
+      </div>
+      <div class="admin-panel">
+        <h2>Daftar Pencapaian</h2>
+        <div class="data-list" id="list-admin-pencapaian"></div>
+      </div>
+    </section>
+
+    <!-- ================= PROJECT ================= -->
+    <section id="panel-project" style="display:none;">
+      <div class="admin-panel">
+        <h2>Tambah Project</h2>
+        <form id="form-project" class="form-grid">
+          <div class="field"><label>Judul Project</label><input name="judul" required></div>
+          <div class="field"><label>Tech Stack (pisah koma)</label><input name="tech_stack" placeholder="cth: Node.js, Express, CSS"></div>
+          <div class="field"><label>URL Demo</label><input name="url_demo" placeholder="https://..."></div>
+          <div class="field"><label>URL Repository</label><input name="url_repo" placeholder="https://github.com/..."></div>
+          <div class="field full"><label>URL Gambar/Thumbnail</label><input name="gambar_url" placeholder="https://..."></div>
+          <div class="field full"><label>Deskripsi</label><textarea name="deskripsi"></textarea></div>
+          <div class="full"><button type="submit" class="btn btn-primary">Tambah</button></div>
+        </form>
+      </div>
+      <div class="admin-panel">
+        <h2>Daftar Project</h2>
+        <div class="data-list" id="list-admin-project"></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="/js/admin.js"></script>
+</body>
+</html>

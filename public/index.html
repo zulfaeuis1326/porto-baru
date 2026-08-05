@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio</title>
+<meta name="description" content="Website portofolio pribadi">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!--
+  CATATAN: Sengaja TIDAK ADA link/tombol ke halaman login di manapun
+  pada halaman ini (nav, footer, dll), sesuai permintaan kamu.
+  Halaman login hanya bisa diakses lewat URL langsung: /login.html
+-->
+
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<header class="site-header">
+  <div class="container">
+    <div class="brand" id="brand-name">Portofolio<span>.</span></div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#belajar">Riwayat Belajar</a></li>
+      <li><a href="#kerja">Pengalaman</a></li>
+      <li><a href="#pencapaian">Pencapaian</a></li>
+      <li><a href="#project">Project</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Buka menu navigasi">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="hero" id="tentang">
+  <canvas class="hero-net" id="hero-net"></canvas>
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">Halo, perkenalkan</p>
+      <h1 id="hero-nama">Memuat...</h1>
+      <p class="tagline" id="hero-tagline"></p>
+      <p class="tagline" id="hero-desc"></p>
+      <a href="#project" class="btn btn-primary">
+        Lihat Project
+      </a>
+    </div>
+    <div class="hero-photo">
+      <img id="hero-foto" style="display:none" alt="Foto profil">
+      <div class="placeholder" id="hero-foto-placeholder">FOTO PROFIL</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="belajar">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Jejak akademik</p>
+      <h2>Riwayat Belajar</h2>
+      <p>Perjalanan pendidikan formal dan non-formal yang membentuk kemampuan saat ini.</p>
+    </div>
+    <div class="timeline" id="list-belajar"></div>
+  </div>
+</section>
+
+<section class="section soft" id="kerja">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Jam terbang</p>
+      <h2>Pengalaman Kerja</h2>
+      <p>Riwayat pekerjaan dan peran yang pernah dijalani.</p>
+    </div>
+    <div class="timeline" id="list-kerja"></div>
+  </div>
+</section>
+
+<section class="section" id="pencapaian">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Yang dibanggakan</p>
+      <h2>Pencapaian</h2>
+      <p>Sertifikasi, kompetisi, dan pencapaian lain yang pernah diraih.</p>
+    </div>
+    <div class="achievement-grid" data-stagger id="list-pencapaian"></div>
+  </div>
+</section>
+
+<section class="section soft" id="project">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Karya</p>
+      <h2>Project</h2>
+      <p>Beberapa project yang pernah dikerjakan.</p>
+    </div>
+    <div class="project-grid" data-stagger id="list-project"></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    &copy; <span id="tahun-footer"></span> — <strong id="footer-nama">Portofolio</strong>. Dibuat dengan Node.js &amp; Express.
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>
